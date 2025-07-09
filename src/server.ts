@@ -1,15 +1,15 @@
 import fastify from "fastify";
 import { env } from "./env";
-import { knex } from "./database";
+import { knex } from "./database/knex";
 
 const app = fastify();
 
 const PORT = env.PORT;
 
 app.get("/hello", () => {
-  const tables = knex('sqlite_schema').select('*')
+  const tables = knex("sqlite_schema").select("*");
 
-  return tables
+  return tables;
 });
 
 app

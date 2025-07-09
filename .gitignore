@@ -1,2 +1,3 @@
 node_modules
-tmp/database.db
+src/database/database.db
+.env
