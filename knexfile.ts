@@ -1,7 +1,10 @@
+import { env } from "@/env"
+
+
 export default {
   client: "sqlite3",
   connection: {
-    filename: "./src/database/database.db"
+    filename: env.DATABASE_URL
   },
   pool: {
     afterCreate: (connection: any, done: any) => {
