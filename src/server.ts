@@ -7,9 +7,9 @@ const app = fastify();
 const PORT = env.PORT;
 
 app.get("/hello", () => {
-  const tables = knex("sqlite_schema").select("*");
+  const transaction = knex("transactions").select().where("amount", '<', 900);
 
-  return tables;
+  return transaction;
 });
 
 app
