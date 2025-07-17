@@ -1,5 +1,5 @@
 import { knex } from "@/database/knex";
-import { randomUUID } from "crypto";
+import { randomUUID } from "node:crypto";
 import { FastifyInstance } from "fastify";
 import { z } from "zod/v4";
 
