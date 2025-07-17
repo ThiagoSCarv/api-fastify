@@ -1,8 +1,7 @@
-import { knex } from "@/database/knex";
-import { randomUUID } from "node:crypto";
+import { knex } from "../database/knex";
 import { FastifyInstance } from "fastify";
 import { z } from "zod/v4";
-import { verifyUserToken } from "@/middlewares/verifyUserCookie";
+import { verifyUserToken } from "../middlewares/verifyUserCookie";
 
 export async function transactionsRoutes(app: FastifyInstance) {
   app.get("/", { preHandler: [verifyUserToken] }, async (request, reply) => {
@@ -28,9 +27,9 @@ export async function transactionsRoutes(app: FastifyInstance) {
   })
 
   app.get("/summary", { preHandler: [verifyUserToken] }, async (request, reply) => {
-    const summary = await knex("transactions").sum("amount", { as: "amount" }).first()
-
     const { sessionId } = request.cookies
+
+    const summary = await knex("transactions").where("session_id", sessionId).sum("amount", { as: "amount" }).first()
 
     return { summary }
   })

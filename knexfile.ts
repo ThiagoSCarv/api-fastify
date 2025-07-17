@@ -1,4 +1,4 @@
-import { env } from "@/env";
+import { env } from "./src/env";
 
 export default {
   client: "sqlite3",
