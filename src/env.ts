@@ -2,17 +2,17 @@ import { z } from "zod";
 import { config } from "dotenv";
 
 if (process.env.NODE_ENV === "test") {
-	config({ path: ".env.test" });
+  config({ path: ".env.test" });
 } else {
-	config();
+  config();
 }
 
 const envSchema = z.object({
-	PORT: z.coerce.number().default(3333),
-	DATABASE_URL: z.string().default("./src/database/database.db"),
-	NODE_ENV: z
-		.enum(["development", "test", "production"])
-		.default("development"),
+  PORT: z.coerce.number().default(3333),
+  DATABASE_URL: z.string().default("./database/database.db"),
+  NODE_ENV: z
+    .enum(["development", "test", "production"])
+    .default("development"),
 });
 
 export const env = envSchema.parse(process.env);

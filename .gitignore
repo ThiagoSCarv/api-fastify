@@ -1,3 +1,12 @@
+# Node Modules
 node_modules
-src/database/database.db
+
+# Banco de Dados
+src/database/*.db
+
+# Variaveis de ambiente
 .env
+.env.test
+
+# Build
+build

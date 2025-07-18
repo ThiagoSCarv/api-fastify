@@ -14,10 +14,10 @@ export default {
   useNullAsDefault: true,
   migrations: {
     extensions: "ts",
-    directory: "./src/database/migrations",
+    directory: "./database/migrations",
   },
   seeds: {
     extensions: "ts",
-    directory: "./src/database/seeds",
+    directory: "./database/seeds",
   },
 };
